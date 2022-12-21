@@ -3,6 +3,14 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.top {
+    display: flex;
+    justify-content: space-around;
 }
 .snowman-image {
     border-bottom: 1px solid black;
@@ -10,6 +18,7 @@
     flex-direction: column;
     align-items: center;
     width: 40%;
+    /* margin: 0px auto; */
 }
 .hat {
     display: flex;
@@ -46,7 +55,7 @@
     margin-top: 15px;    
 }
 .eye, .button {
-    background-color: darkslategray;
+    background-color: black;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -60,7 +69,7 @@
     margin-left: 40%;
 }
 .smile {
-    border-bottom: 5px dotted darkslategray;
+    border-bottom: 5px dotted black;
     border-radius: 90%;
     width: 40px;
     height: 10px;
@@ -73,9 +82,25 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+    position: relative;
+}
+.arm {
+    border: 1px solid black;
+    width: 70px;
+    position: absolute;
+}
+#right-arm {
+    top: 20px;
+    left: -68px;
+    transform: rotate(20deg);
+}
+#left-arm {
+    top: 20px;
+    left: 94px;
+    transform: rotate(340deg);
 }
 .button {
-    background-color: darkslategray;
+    background-color: black;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -83,4 +108,15 @@
 .bottom {
     width: 150px;
     height: 120px;
+}
+
+.top-right {
+    margin-top: 20px;
+    width: 30%;
+}
+.rules > h3 {
+    margin: 20px 0px;
+}
+.rules > ul {
+    margin-left: 20px;
 }
