@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+.snowman-image {
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+.hat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.stovepipe {
+    background-color: black;
+    width: 45px;
+    height: 50px;
+    margin-top: 20px;
+}
+.brim {
+    border: 2px solid black;
+    width: 85px;
+    height: 2px;
+}
+.head, .mid-section, .bottom {
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-top: -3px;
+}
+.head {
+    width: 75px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.eyes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;    
+}
+.eye, .button {
+    background-color: darkslategray;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+} 
+.nose {
+    width: 0;
+	height: 0;
+	border-top: 7px solid transparent;
+	border-left: 30px solid orange;
+	border-bottom: 2px solid transparent;
+    margin-left: 40%;
+}
+.smile {
+    border-bottom: 5px dotted darkslategray;
+    border-radius: 90%;
+    width: 40px;
+    height: 10px;
+}
+.mid-section {
+    width: 100px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.button {
+    background-color: darkslategray;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.bottom {
+    width: 150px;
+    height: 120px;
+}
