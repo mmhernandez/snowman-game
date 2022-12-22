@@ -7,6 +7,7 @@
 }
 h1 {
     text-align: center;
+    margin: 10px 0px;
 }
 .top {
     display: flex;
@@ -18,7 +19,9 @@ h1 {
     flex-direction: column;
     align-items: center;
     width: 40%;
-    /* margin: 0px auto; */
+    /* background-color: azure;
+    border: inset whitesmoke;
+    border-style: groove; */
 }
 .hat {
     display: flex;
