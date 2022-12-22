@@ -110,16 +110,64 @@ h1 {
 }
 .bottom {
     width: 150px;
-    height: 120px;
+    height: 110px;
 }
-
+.snowman-image > p {
+    text-align: left;
+}
 .top-right {
-    margin-top: 20px;
     width: 30%;
 }
 .rules > h3 {
-    margin: 20px 0px;
+    margin: 10px 0px 5px;
 }
 .rules > ul {
-    margin-left: 20px;
+    margin: 0px 0px 10px 20px;
+    font-size: 12px;
+}
+#guess-section {
+    margin-top: 20px;
+    padding: 8px;
+    box-shadow: 5px 5px 10px 5px whitesmoke, -5px -5px 10px 5px whitesmoke;
+    height: 120px;
+}
+#guessed-letters {
+    display: flex;
+    justify-content: space-evenly;
+}
+.bottom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+button {
+    background-color: orange;
+    color: white;
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 24px;
+}
+#wordGame {
+    display: none;
+}
+#guessForm {
+    display: flex;
+    gap: 40px;
+}
+#letter {
+    border: 2px solid black;
+    border-radius: 25px;
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    font-size: 16px;
+}
+#guessButton {
+    background-color: black;
+}
+#word {
+    width: 75%;
 }
