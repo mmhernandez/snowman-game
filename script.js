@@ -8,10 +8,27 @@ function playGame(element) {
     displayWordToGuess();
 }
 
-function searchBar(e) {
-    e.preventDefault();
+var word = ['h','o','r','s','e']
+var wordToGuess = document.getElementById("word");
+
+function displayWordToGuess() {
+    for(var i=0; i<word.length; i++) {
+        wordToGuess.innerHTML += `<p class="word-to-guess"><span class="letter" id="letter${i}">${word[i]}</span/</p>`
+        document.querySelector(`#letter${i}`).style.display = "none";
+    }
 }
 
-function displayWordToGuess  {
+var guessedLetter;
+
+function submitGuess(e) {
+    e.preventDefault();
     
+    guessedLetter = document.getElementById("letter").value;
+    if(guessedLetter != '') {
+        for(var i=0; i<word.length; i++) {
+            if(guessedLetter == word[i]) {
+                document.querySelector(`#letter${i}`).style.display = "contents";
+            }
+        }
+    }
 }

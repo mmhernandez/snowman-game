@@ -112,9 +112,6 @@ h1 {
     width: 150px;
     height: 110px;
 }
-.snowman-image > p {
-    text-align: left;
-}
 .top-right {
     width: 30%;
 }
@@ -124,6 +121,10 @@ h1 {
 .rules > ul {
     margin: 0px 0px 10px 20px;
     font-size: 12px;
+}
+.bold {
+    font-weight: bold;
+    color: orange;
 }
 #guess-section {
     margin-top: 20px;
@@ -158,7 +159,7 @@ button {
     gap: 40px;
 }
 #letter {
-    border: 2px solid black;
+    border: 3px solid orange;
     border-radius: 25px;
     height: 50px;
     width: 120px;
@@ -170,4 +171,13 @@ button {
 }
 #word {
     width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.word-to-guess {
+    border-bottom: 2px solid black;
+    width: 50px;
+    margin: 70px 0px;
+    font-size: 20pt;
+    text-align: center;
 }
