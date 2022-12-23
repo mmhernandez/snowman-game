@@ -13,14 +13,17 @@ h1 {
     display: flex;
     justify-content: space-around;
 }
+/* .d1 {
+    visibility: visible;
+} */
 .snowman-image {
     border-bottom: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 40%;
-    /* background-color: azure;
-    border: inset whitesmoke;
+    background-color: white;
+    /* border: inset whitesmoke;
     border-style: groove; */
 }
 .hat {
@@ -80,12 +83,14 @@ h1 {
 .mid-section {
     width: 100px;
     height: 80px;
+    position: relative;
+}
+.buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin-top: 15px;
     gap: 5px;
-    position: relative;
 }
 .arm {
     border: 1px solid black;
@@ -104,8 +109,8 @@ h1 {
 }
 .button {
     background-color: black;
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
 }
 .bottom {
@@ -134,7 +139,10 @@ h1 {
 }
 #guessed-letters {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
 }
 .bottom-section {
     display: flex;

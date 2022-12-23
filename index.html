@@ -11,32 +11,34 @@
     <h1>Snowman Game</h1>
     <div class="top">
         <div class="snowman-image">
-            <div class="hat">
+            <div class="hat d1">
                 <div class="stovepipe"></div>
                 <div class="brim"></div>
             </div>
-            <div class="head">
-                <div class="eyes">
+            <div class="head d8">
+                <div class="eyes d2">
                     <div class="eye"></div>
                     <div class="eye"></div>
                 </div>
-                <div class="nose"></div>
-                <div class="smile"></div>
+                <div class="nose d3"></div>
+                <div class="smile d4"></div>
             </div>
-            <div class="mid-section">
-                <div id="right-arm" class="arm"></div>
-                <div class="button"></div>
-                <div class="button"></div>
-                <div class="button"></div>
-                <div id="left-arm" class="arm"></div>
+            <div class="mid-section d9">
+                <div id="right-arm" class="arm d6"></div>
+                <div class="buttons d5">
+                    <div class="button"></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+                </div>
+                <div id="left-arm" class="arm d7"></div>
             </div>
-            <div class="bottom"></div>
+            <div class="bottom d10"></div>
         </div>
         <div class="top-right">
             <div class="rules">
                 <h3>Game Rules</h3>
                 <ul>
-                    <li>Figure out the word below based on the number of spaces provided</li>
+                    <li>Figure out the word based on the number of spaces provided</li>
                     <li>You can guess up to 10 letters</li>
                     <li>Each incorrectly guessed letter removes part of the snowman</li>
                     <li class="bold">Guess the word before the snowman disappears!</li>
@@ -58,6 +60,7 @@
             <div id="word"></div>
         </div>
     </div>
+
     <script src="./script.js"></script>
 </body>
 </html>

@@ -19,16 +19,32 @@ function displayWordToGuess() {
 }
 
 var guessedLetter;
+var incorrectGuesses = 0;
 
 function submitGuess(e) {
     e.preventDefault();
     
     guessedLetter = document.getElementById("letter").value;
     if(guessedLetter != '') {
+        var check = 0; //check to see if guessed letter is in the word
         for(var i=0; i<word.length; i++) {
             if(guessedLetter == word[i]) {
                 document.querySelector(`#letter${i}`).style.display = "contents";
+                check++;
             }
         }
+        if(check == 0) {
+            document.getElementById("guessed-letters").innerHTML += `<p>${guessedLetter}</p>`
+            incorrectGuesses++;
+            disappearingSnowman(incorrectGuesses);
+        }
     }
+    //reset textbox for player to guess another letter 
+    document.getElementById("letter").value = '';
+}
+
+function disappearingSnowman(num) {
+    console.log(document.querySelector(`.d${num}`));
+    document.querySelector(`.d${num}`).style.visibility = "hidden";
+    // document.querySelector(`.d${num}`).opacity = "0";
 }
