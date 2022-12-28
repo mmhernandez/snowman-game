@@ -5,6 +5,9 @@ function playGame(element) {
     //display the game, after the user indicates they want to play
     wordGame.style.display = "contents";
 
+    //display the remaining guesses section
+    document.querySelector(".guessesRemaining").style.display = "contents";
+
     displayWordToGuess();
 }
 
@@ -20,21 +23,30 @@ function displayWordToGuess() {
 
 var guessedLetter;
 var incorrectGuesses = 0;
+var incorrectlyGuessedLetters = [];
 
 function submitGuess(e) {
     e.preventDefault();
     
-    guessedLetter = document.getElementById("letter").value;
+    guessedLetter = document.getElementById("letter").value.toLowerCase();
+    var check = 0; //check to bypass incorrect guess workflow
+
+    for(var i=0; i<incorrectlyGuessedLetters.length; i++) {
+        if(guessedLetter = incorrectlyGuessedLetters[i]) {
+            check++;
+        }
+    }
     if(guessedLetter != '') {
-        var check = 0; //check to see if guessed letter is in the word
-        for(var i=0; i<word.length; i++) {
-            if(guessedLetter == word[i]) {
-                document.querySelector(`#letter${i}`).style.display = "contents";
+        for(var j=0; j<word.length; j++) {
+            if(guessedLetter == word[j]) {
+                document.querySelector(`#letter${j}`).style.display = "contents";
                 check++;
             }
         }
         if(check == 0) {
             document.getElementById("guessed-letters").innerHTML += `<p>${guessedLetter}</p>`
+            incorrectlyGuessedLetters.push(guessedLetter);
+            remainingGuesses.innerText --;
             incorrectGuesses++;
             disappearingSnowman(incorrectGuesses);
         }
@@ -44,7 +56,7 @@ function submitGuess(e) {
 }
 
 function disappearingSnowman(num) {
-    console.log(document.querySelector(`.d${num}`));
+    // console.log(document.querySelector(`.d${num}`));
     document.querySelector(`.d${num}`).style.visibility = "hidden";
     // document.querySelector(`.d${num}`).opacity = "0";
 }
