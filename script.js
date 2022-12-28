@@ -8,15 +8,31 @@ function playGame(element) {
     //display the remaining guesses section
     document.querySelector(".guessesRemaining").style.display = "contents";
 
-    displayWordToGuess();
+    pickRandomWord();
 }
 
-var word = ['h','o','r','s','e']
-var wordToGuess = document.getElementById("word");
+var words = [
+    ['h','o','r','s','e'],
+    ['t','a','b','l','e'],
+    ['p','a','l','a','c','e'],
+    ['o','r','a','n','g','e'],
+    ['p','l','a','n','e','t'],
+    ['c','a','b','l','e'],
+    ['i','r','a','t','e'],
+    ['a','d','v','e','n','t','u','r','e'],
+    ['p','i','c','t','u','r','e'],
+    ['w','a','t','c','h'],
+    ]
 
-function displayWordToGuess() {
-    for(var i=0; i<word.length; i++) {
-        wordToGuess.innerHTML += `<p class="word-to-guess"><span class="letter" id="letter${i}">${word[i]}</span/</p>`
+function pickRandomWord() {
+    var randomNum = Math.floor(Math.random() * 10);
+    displayWordToGuess(randomNum);
+}
+
+var wordToGuess = document.getElementById("word");
+function displayWordToGuess(num) {
+    for(var i=0; i<words[num].length; i++) {
+        wordToGuess.innerHTML += `<p class="word-to-guess"><span class="letter" id="letter${i}">${words[num][i]}</span/</p>`
         document.querySelector(`#letter${i}`).style.display = "none";
     }
 }
