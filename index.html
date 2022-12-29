@@ -20,7 +20,7 @@
                     <div class="eye"></div>
                     <div class="eye"></div>
                 </div>
-                <div class="nose d3"></div>
+                <div class="nose d3 slow-dissolve"></div>
                 <div class="smile d4"></div>
             </div>
             <div class="mid-section d9">
@@ -60,6 +60,8 @@
                 <input type="text" placeholder="Guess a letter" id="letter">
                 <button id="guessButton">Guess</button>
             </form>
+            <p id="hint" onmouseover="displayHint()" onmouseout="hideHint()">?</p>
+            <p class="hint-text">placeholder</p>
             <div id="word"></div>
         </div>
     </div>

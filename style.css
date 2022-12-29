@@ -23,8 +23,6 @@ h1 {
     align-items: center;
     width: 40%;
     background-color: white;
-    /* border: inset whitesmoke;
-    border-style: groove; */
 }
 .hat {
     display: flex;
@@ -117,6 +115,17 @@ h1 {
     width: 150px;
     height: 110px;
 }
+.slow-dissolve {
+    animation-name: slowDissolve;
+    animation-duration: 6s;
+    animation-iteration-count: 3;
+    /* animation-fill-mode: forwards; */
+    /* animation-timing-function: ease-in-out; */
+}
+@keyframes slowDissolve {
+    from {visibility: visible;}
+    to {visibility: hidden;}
+}
 .top-right {
     width: 30%;
 }
@@ -172,6 +181,7 @@ button {
 }
 #guessForm {
     display: flex;
+    align-items: center;
     gap: 40px;
 }
 #letter {
@@ -184,6 +194,23 @@ button {
 }
 #guessButton {
     background-color: black;
+}
+#hint {
+    font-size: 12px;
+    color: grey;
+    border: 2px solid grey;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    text-align: center;
+    visibility: hidden;
+}
+.hint-text {
+    visibility: hidden;
+    font-size: 12px;
+    color: grey;
+    font-style: italic;
 }
 #word {
     width: 75%;
