@@ -20,7 +20,7 @@
                     <div class="eye"></div>
                     <div class="eye"></div>
                 </div>
-                <div class="nose d3 slow-dissolve"></div>
+                <div class="nose d3"></div>
                 <div class="smile d4"></div>
             </div>
             <div class="mid-section d9">
@@ -33,6 +33,7 @@
                 <div id="left-arm" class="arm d7"></div>
             </div>
             <div class="bottom d10"></div>
+            <p id="gameOver"></p>
         </div>
         <div class="top-right">
             <div class="rules">
@@ -48,13 +49,14 @@
                 <div>
                     <p class="guessesRemaining">Remaining Guesses: <span id="remainingGuesses">10</span></p>
                 </div>
-                <div id="guessed-letters"></div>
+                <div class="bold" id="guessed-letters"></div>
                 <h4>Guessed Letters:</h4>
             </div>
+            <p id="gameOverMessage"></p>
         </div> 
     </div>
     <div class="bottom-section">
-        <button onclick="playGame(this)">Play!</button>
+        <button id="playBtn" onclick="playGame(this)">Play!</button>
         <div id="wordGame">
             <form id="guessForm" action="#" onsubmit="submitGuess(event)">
                 <input type="text" placeholder="Guess a letter" id="letter">

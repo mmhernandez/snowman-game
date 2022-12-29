@@ -1,13 +1,44 @@
 //TO DO
 //Add "play again" button (consider checking to see if the word has been played already)
+//Need to account for guesses with multiple characters (limit to single character guesses)
 //Figure out why blank/empty guesses are being accepted once
 //Make snowman parts disappear slowly
 
 
 
 function playGame(element) {
+    //if player is playing again, reset game variables/fields
+    incorrectGuesses = 0;
+    remainingGuesses.innerText = 10;
+    wordGame.style.display = "none";
+    document.querySelector(".guessesRemaining").style.display = "none";
+    playBtn.style.display = "block";
+    document.getElementById("gameOver").innerText = '';
+    gameOverMessage.innerText = '';
+    hint.visibility = "hidden";
+
+    //if player is playing again, reset arrays
+    for(let i=wordInPlay.length-1; i>=0; i--) {
+        wordInPlay.pop();
+    }
+    for (let j=incorrectlyGuessedLetters.length-1; j>=0; j--) {
+        incorrectlyGuessedLetters.pop();
+    }
+
+    //if player is playing again, reset created HTML elements
+    var previousWordToClear = document.querySelectorAll(".word-to-guess");
+    for(let i=previousWordToClear.length-1; i<=0; i--) {
+        previousWordToClear.pop();
+    }
+
+    var previousGuessedLettersToClear = document.querySelectorAll(".gl");
+    for(let j=previousGuessedLettersToClear.length-1; j<=0; j--) {
+        previousGuessedLettersToClear.pop();
+    }
+
+
     //remove play button
-    element.remove();
+    element.style.display = "none";
 
     //display the game, after the user indicates they want to play
     wordGame.style.display = "contents";
@@ -44,10 +75,13 @@ const hint = {
 };
 
 var wordInPlay = [];
+var playedWords = [];
+var randomNum;
 
 function pickRandomWord() {
-    var randomNum = Math.floor(Math.random() * 10);
+    randomNum = Math.floor(Math.random() * 10);
     wordInPlay = words[randomNum];
+    playedWords.push(words[randomNum]);
     displayWordToGuess(randomNum);
 }
 
@@ -86,7 +120,7 @@ function submitGuess(e) {
         }
         //if guessed letter isn't in the word and hasn't already been guessed, proceed
         if(check == 0) {
-            document.getElementById("guessed-letters").innerHTML += `<p>${guessedLetter}</p>`
+            document.getElementById("guessed-letters").innerHTML += `<p class="gl">${guessedLetter}</p>`
             incorrectlyGuessedLetters.push(guessedLetter);
             remainingGuesses.innerText --;
             incorrectGuesses++;
@@ -101,11 +135,16 @@ function submitGuess(e) {
     if(incorrectGuesses == 6) {
         document.getElementById("hint").style.visibility = "visible";
     }
+
+    //determine how to proceed if the game is over
+    if(remainingGuesses.innerText == 0) {
+        gameOver();
+    }
 }
 
 function disappearingSnowman(num) {
     document.querySelector(`.d${num}`).style.visibility = "hidden";
-    // console.log(document.querySelector(`.d${num}`).classList.add("slow-dissolve"));
+    document.querySelector(`.d${num}`).classList.add("slow-dissolve");
 }
 
 let hintKey = '';
@@ -121,4 +160,15 @@ function displayHint() {
 function hideHint() {
     document.querySelector(".hint-text").style.visibility = "hidden";
     hintKey = '';
+}
+
+function gameOver() {
+    document.getElementById("letter").style.visibility = "hidden";
+    document.getElementById("guessButton").style.visibility = "hidden";
+
+    document.getElementById("gameOverMessage").innerText = "You did not guess the word before the snowman disappeared. \nBetter luck next time!";
+    document.getElementById("gameOver").innerText = "Game over"
+
+    playBtn.style.display = "block";
+    playBtn.innerText = "Play Again";
 }

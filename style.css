@@ -13,9 +13,6 @@ h1 {
     display: flex;
     justify-content: space-around;
 }
-/* .d1 {
-    visibility: visible;
-} */
 .snowman-image {
     border-bottom: 1px solid black;
     display: flex;
@@ -118,13 +115,13 @@ h1 {
 .slow-dissolve {
     animation-name: slowDissolve;
     animation-duration: 6s;
-    animation-iteration-count: 3;
-    /* animation-fill-mode: forwards; */
+    /* animation-iteration-count: 3; */
+    animation-fill-mode: forwards;
     /* animation-timing-function: ease-in-out; */
 }
 @keyframes slowDissolve {
-    from {visibility: visible;}
-    to {visibility: hidden;}
+    from {opacity: 1;}
+    to {opacity: 0;}
 }
 .top-right {
     width: 30%;
@@ -138,7 +135,6 @@ h1 {
 }
 .bold {
     font-weight: bold;
-    color: orange;
 }
 #guess-section {
     margin-top: 20px;
@@ -161,6 +157,13 @@ h1 {
     display: none;
     font-size: 12px;
 }
+#gameOverMessage, #gameOver {
+    color: orange;
+    font-size: 20px;
+}
+#gameOverMessage {
+    margin-top: 10px;
+}
 .bottom-section {
     display: flex;
     flex-direction: column;
@@ -171,7 +174,8 @@ button {
     background-color: orange;
     color: white;
     height: 50px;
-    width: 100px;
+    width: auto;
+    padding: 8px;
     cursor: pointer;
     font-weight: bold;
     font-size: 24px;
