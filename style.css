@@ -159,10 +159,11 @@ h1 {
 }
 #gameOverMessage, #gameOver {
     color: orange;
-    font-size: 20px;
+    font-size: 30px;
 }
 #gameOverMessage {
     margin-top: 10px;
+    font-size: 12px;
 }
 .bottom-section {
     display: flex;

@@ -7,41 +7,51 @@
 
 
 function playGame(element) {
-    //if player is playing again, reset game variables/fields
-    incorrectGuesses = 0;
-    remainingGuesses.innerText = 10;
-    wordGame.style.display = "none";
-    document.querySelector(".guessesRemaining").style.display = "none";
-    playBtn.style.display = "block";
-    document.getElementById("gameOver").innerText = '';
-    gameOverMessage.innerText = '';
-    hint.visibility = "hidden";
+    //check if player is playing again
+    if(incorrectGuesses > 0) {
+        //if player is playing again, reset created HTML elements
+        const previousWordToClearList = document.getElementById("word");
+        while (previousWordToClearList.hasChildNodes()) {
+            previousWordToClearList.removeChild(previousWordToClearList.firstChild);
+        }
+        const previousGuessedLettersToClearList = document.getElementById("guessed-letters");
+        while (previousGuessedLettersToClearList.hasChildNodes()) {
+            previousGuessedLettersToClearList.removeChild(previousGuessedLettersToClearList.firstChild);
+        }
 
-    //if player is playing again, reset arrays
-    for(let i=wordInPlay.length-1; i>=0; i--) {
-        wordInPlay.pop();
-    }
-    for (let j=incorrectlyGuessedLetters.length-1; j>=0; j--) {
-        incorrectlyGuessedLetters.pop();
-    }
+        //if player is playing again, reset game variables/fields
+        incorrectGuesses = 0;
+        remainingGuesses.innerText = 10;
+        wordGame.style.display = "none";
+        document.querySelector(".guessesRemaining").style.display = "none";
+        playBtn.style.display = "block";
+        document.getElementById("gameOver").innerText = '';
+        gameOverMessage.innerText = '';
+        document.getElementById("hint").style.visibility = "hidden";
 
-    //if player is playing again, reset created HTML elements
-    var previousWordToClear = document.querySelectorAll(".word-to-guess");
-    for(let i=previousWordToClear.length-1; i<=0; i--) {
-        previousWordToClear.pop();
-    }
+        //if player is playing again, reset arrays
+        for(let i=wordInPlay.length-1; i>=0; i--) {
+            wordInPlay.pop();
+        }
+        for (let j=incorrectlyGuessedLetters.length-1; j>=0; j--) {
+            incorrectlyGuessedLetters.pop();
+        }
 
-    var previousGuessedLettersToClear = document.querySelectorAll(".gl");
-    for(let j=previousGuessedLettersToClear.length-1; j<=0; j--) {
-        previousGuessedLettersToClear.pop();
+        //if player is playing again, redraw the snowman
+        for(let k=1; k<=10; k++) {
+            document.querySelector(`.d${k}`).style.visibility = "visible";
+            document.querySelector(`.d${k}`).classList.remove("slow-dissolve");
+        }
     }
 
 
     //remove play button
     element.style.display = "none";
 
-    //display the game, after the user indicates they want to play
+    //display the game
     wordGame.style.display = "contents";
+    document.getElementById("letter").style.visibility = "visible";
+    document.getElementById("guessButton").style.visibility = "visible";
 
     //display the remaining guesses section
     document.querySelector(".guessesRemaining").style.display = "contents";
@@ -80,9 +90,14 @@ var randomNum;
 
 function pickRandomWord() {
     randomNum = Math.floor(Math.random() * 10);
+    for(let i=0; i<playedWords.length; i++) {
+        if(playedWords[i] == randomNum) {
+            randomNum = Math.floor(Math.random() * 10);
+        }
+    }
     wordInPlay = words[randomNum];
     playedWords.push(words[randomNum]);
-    displayWordToGuess(randomNum);
+    displayWordToGuess();
 }
 
 function displayWordToGuess() {
@@ -120,7 +135,7 @@ function submitGuess(e) {
         }
         //if guessed letter isn't in the word and hasn't already been guessed, proceed
         if(check == 0) {
-            document.getElementById("guessed-letters").innerHTML += `<p class="gl">${guessedLetter}</p>`
+            document.getElementById("guessed-letters").innerHTML += `<p>${guessedLetter}</p>`
             incorrectlyGuessedLetters.push(guessedLetter);
             remainingGuesses.innerText --;
             incorrectGuesses++;
@@ -163,10 +178,12 @@ function hideHint() {
 }
 
 function gameOver() {
+    //hide guess field/button so no further guesses can be made
     document.getElementById("letter").style.visibility = "hidden";
     document.getElementById("guessButton").style.visibility = "hidden";
 
-    document.getElementById("gameOverMessage").innerText = "You did not guess the word before the snowman disappeared. \nBetter luck next time!";
+    //display game over messages
+    document.getElementById("gameOverMessage").innerText = "You did not guess the word before the snowman disappeared. \n\nBetter luck next time!";
     document.getElementById("gameOver").innerText = "Game over"
 
     playBtn.style.display = "block";
