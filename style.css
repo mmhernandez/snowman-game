@@ -159,7 +159,10 @@ h1 {
 }
 #gameOverMessage, #gameOver {
     color: orange;
-    font-size: 30px;
+    font-size: 20px;
+}
+#gameOver {
+    text-align: center;
 }
 #gameOverMessage {
     margin-top: 10px;
@@ -180,6 +183,7 @@ button {
     cursor: pointer;
     font-weight: bold;
     font-size: 24px;
+    border-radius: 5px;
 }
 #wordGame {
     display: none;
@@ -199,6 +203,7 @@ button {
 }
 #guessButton {
     background-color: black;
+    border-radius: 5px;
 }
 #hint {
     font-size: 12px;

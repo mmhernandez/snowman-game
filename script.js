@@ -1,7 +1,4 @@
 //TO DO
-//Add "play again" button (consider checking to see if the word has been played already)
-//Need to account for guesses with multiple characters (limit to single character guesses)
-//Figure out why blank/empty guesses are being accepted once
 //Make snowman parts disappear slowly
 
 
@@ -9,6 +6,8 @@
 function playGame(element) {
     //check if player is playing again
     if(incorrectGuesses > 0) {
+        console.log(playedWords);
+
         //if player is playing again, reset created HTML elements
         const previousWordToClearList = document.getElementById("word");
         while (previousWordToClearList.hasChildNodes()) {
@@ -18,6 +17,8 @@ function playGame(element) {
         while (previousGuessedLettersToClearList.hasChildNodes()) {
             previousGuessedLettersToClearList.removeChild(previousGuessedLettersToClearList.firstChild);
         }
+
+        console.log(playedWords);
 
         //if player is playing again, reset game variables/fields
         incorrectGuesses = 0;
@@ -95,8 +96,9 @@ function pickRandomWord() {
             randomNum = Math.floor(Math.random() * 10);
         }
     }
+    console.log(randomNum);
     wordInPlay = words[randomNum];
-    playedWords.push(words[randomNum]);
+    playedWords.push(randomNum);
     displayWordToGuess();
 }
 
@@ -124,8 +126,9 @@ function submitGuess(e) {
         }
     }
 
+    let alphaCheck = /^[A-Za-z]{1}$/;
     //confirm the guess is not empty/blank upon submitting
-    if(guessedLetter != ' ' || guessedLetter != '') {
+    if(guessedLetter.match(alphaCheck)) { //!= ' ' || guessedLetter != ''
         for(var j=0; j<wordInPlay.length; j++) {
             //check if the guessed letter is in the word
             if(guessedLetter == wordInPlay[j]) {
@@ -141,6 +144,9 @@ function submitGuess(e) {
             incorrectGuesses++;
             disappearingSnowman(incorrectGuesses);
         }
+    }
+    else {
+        alert("Please submit a valid guess (single alpha characters only)");
     }
 
     //reset textbox for player to guess another letter 
@@ -182,10 +188,16 @@ function gameOver() {
     document.getElementById("letter").style.visibility = "hidden";
     document.getElementById("guessButton").style.visibility = "hidden";
 
-    //display game over messages
-    document.getElementById("gameOverMessage").innerText = "You did not guess the word before the snowman disappeared. \n\nBetter luck next time!";
-    document.getElementById("gameOver").innerText = "Game over"
+    if(playedWords.length == words.length) {
+        //display game over message
+        document.getElementById("gameOver").innerText = "Game over"
+    }
+    else {
+        //display game over messages
+        document.getElementById("gameOverMessage").innerText = "You did not guess the word before the snowman disappeared.";
+        document.getElementById("gameOver").innerText = "Better luck next time!"
 
-    playBtn.style.display = "block";
-    playBtn.innerText = "Play Again";
+        playBtn.style.display = "block";
+        playBtn.innerText = "Play Again";
+    }
 }
