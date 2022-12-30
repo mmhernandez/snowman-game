@@ -47,8 +47,9 @@ function playGame(element) {
     document.getElementById("letter").style.visibility = "visible";
     document.getElementById("guessButton").style.visibility = "visible";
 
-    //display the remaining guesses section
-    document.querySelector(".guessesRemaining").style.display = "contents";
+    //display the guesses section
+    document.getElementById("guess-section").style.visibility = "visible";
+    // document.querySelector(".guessesRemaining").style.display = "contents";
 
     pickRandomWord();
 }

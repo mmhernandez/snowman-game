@@ -7,30 +7,38 @@
 }
 h1 {
     text-align: center;
-    margin: 10px 0px;
+    margin: 20px 0px;
 }
 .top {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    gap: 20px;
 }
 .snowman-image {
-    border-bottom: 1px solid black;
+    box-shadow: 5px 5px 10px 5px grey, -5px -5px 10px 5px grey;
+    box-shadow: inset 5px 5px 5px 5px black;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 40%;
-    background-color: white;
+    /* background-color: white; */
+    background-image:url(./images/snowfall_gradientbkg.gif);
+    background-size: cover;
+    margin: 10px;
 }
 .hat {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: transparent;
+    margin-bottom: 3px;
 }
 .stovepipe {
     background-color: black;
     width: 45px;
     height: 50px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 .brim {
     border: 2px solid black;
@@ -38,9 +46,10 @@ h1 {
     height: 2px;
 }
 .head, .mid-section, .bottom {
-    border: 2px solid black;
-    border-radius: 50%;
-    margin-top: -3px;
+    /* border: 3px solid white; */
+    border-radius: 55%;
+    background-color: whitesmoke;
+    margin: -3px;
 }
 .head {
     width: 75px;
@@ -88,7 +97,7 @@ h1 {
     gap: 5px;
 }
 .arm {
-    border: 1px solid black;
+    border: 3px solid saddlebrown;
     width: 70px;
     position: absolute;
 }
@@ -97,10 +106,42 @@ h1 {
     left: -68px;
     transform: rotate(20deg);
 }
+.rfinger1 {
+    border: 2px solid saddlebrown;
+    width: 20px;
+    top: 7px;
+    left: -60px;
+    transform: rotate(80deg);
+    position: absolute;
+}
+.rfinger2 {
+    border: 2px solid saddlebrown;
+    width: 20px;
+    top: 25px;
+    left: -55px;
+    transform: rotate(140deg);
+    position: absolute;
+}
 #left-arm {
     top: 20px;
-    left: 94px;
+    left: 98px;
     transform: rotate(340deg);
+}
+.lfinger1 {
+    border: 2px solid saddlebrown;
+    width: 20px;
+    top: 10px;
+    left: 120px;
+    transform: rotate(90deg);
+    position: absolute;
+}
+.lfinger2 {
+    border: 2px solid saddlebrown;
+    width: 20px;
+    top: 23px;
+    left: 135px;
+    transform: rotate(25deg);
+    position: absolute;
 }
 .button {
     background-color: black;
@@ -136,13 +177,14 @@ h1 {
     font-weight: bold;
 }
 #guess-section {
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 8px;
     box-shadow: 5px 5px 10px 5px whitesmoke, -5px -5px 10px 5px whitesmoke;
     height: 120px;
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
+    visibility: hidden;
 }
 #guessed-letters {
     display: flex;
