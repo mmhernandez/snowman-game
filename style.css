@@ -114,10 +114,9 @@ h1 {
 }
 .slow-dissolve {
     animation-name: slowDissolve;
-    animation-duration: 6s;
-    /* animation-iteration-count: 3; */
+    animation-duration: 3s;
     animation-fill-mode: forwards;
-    /* animation-timing-function: ease-in-out; */
+    animation-timing-function: ease;
 }
 @keyframes slowDissolve {
     from {opacity: 1;}
