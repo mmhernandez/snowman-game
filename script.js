@@ -1,6 +1,6 @@
 function playGame(element) {
     //check if player is playing again
-    if(incorrectGuesses > 0) {
+    if(incorrectGuesses > 0 || count > 0) {
         //if player is playing again, reset created HTML elements
         const previousWordToClear = document.getElementById("word");
         while (previousWordToClear.hasChildNodes()) {
@@ -13,6 +13,8 @@ function playGame(element) {
 
         //if player is playing again, reset game variables/fields
         incorrectGuesses = 0;
+        check = 0;
+        count = 0;
         remainingGuesses.innerText = 10;
         wordGame.style.display = "none";
         document.querySelector(".guessesRemaining").style.display = "none";
@@ -102,6 +104,7 @@ function displayWordToGuess() {
 var guessedLetter;
 var incorrectGuesses = 0;
 var incorrectlyGuessedLetters = [];
+var count = 0;  //count of letters found in the word
 
 function submitGuess(e) {
     e.preventDefault(); //don't adjust the URL upon submitting a guess
@@ -122,6 +125,9 @@ function submitGuess(e) {
         for(var j=0; j<wordInPlay.length; j++) {
             //check if the guessed letter is in the word
             if(guessedLetter == wordInPlay[j]) {
+                if(document.querySelector(`#letter${j}`).style.display == "none") {
+                    count++;
+                }
                 document.querySelector(`#letter${j}`).style.display = "contents";
                 check++;
             }
@@ -148,7 +154,7 @@ function submitGuess(e) {
     }
 
     //determine how to proceed if the game is over
-    if(remainingGuesses.innerText == 0) {
+    if(remainingGuesses.innerText == 0 || count == wordInPlay.length) {
         gameOver();
     }
 }
@@ -180,13 +186,18 @@ function gameOver() {
     if(playedWords.length == words.length) {
         //display game over message
         document.getElementById("gameOver").innerText = "Game over"
+        return;
+    }
+    else if(count == wordInPlay.length) {
+        //display "you win" message
+        document.getElementById("gameOverMessage").innerText = "You guessed the word correctly. \n You win!";
     }
     else {
-        //display game over messages
+        //display "better next time" messages
         document.getElementById("gameOverMessage").innerText = "You did not guess the word before the snowman disappeared.";
         document.getElementById("gameOver").innerText = "Better luck next time!"
-
-        playBtn.style.display = "block";
-        playBtn.innerText = "Play Again";
     }
+
+    playBtn.style.display = "block";
+    playBtn.innerText = "Play Again";
 }
