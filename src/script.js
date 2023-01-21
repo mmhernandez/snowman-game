@@ -1,3 +1,22 @@
+function highlight(element) {
+    element.style.color = "orange";
+}
+
+function removeHighlight(element) {
+    element.style.color = "white";
+}
+
+function highlightRules() {
+    document.querySelector(".rules").style.boxShadow = "5px 5px 10px 5px orange, -5px -5px 10px 5px orange";
+    document.querySelector(".rules").style.transitionDuration = "1s";
+    setInterval(function () {document.querySelector(".rules").style.boxShadow = ""}, 10000);
+}
+
+function playGameFromNav() {
+    playButton = document.getElementById("playBtn");
+    playGame(playButton);
+}
+
 function playGame(element) {
     //check if player is playing again
     if(incorrectGuesses > 0 || count > 0) {
@@ -41,6 +60,7 @@ function playGame(element) {
 
     //remove play button
     element.style.display = "none";
+    document.getElementById("navPlayBtn").style.display = "none";
 
     //display the game
     wordGame.style.display = "contents";
@@ -200,5 +220,6 @@ function gameOver() {
     }
 
     playBtn.style.display = "block";
+    document.getElementById("navPlayBtn").style.display = "block";
     playBtn.innerText = "Play Again";
 }

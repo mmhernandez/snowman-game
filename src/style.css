@@ -5,10 +5,30 @@
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+/* NAVIGATION BAR */
+nav {
+    background-color: #333647;
+    color: white;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+nav > p {
+    cursor: pointer;
+}
+
 h1 {
     text-align: center;
-    margin: 20px 0px;
+    margin: 30px 0px;
+    font-size: 50px;
 }
+
+/* SNOWMAN IMAGE */
 .top {
     display: flex;
     justify-content: space-evenly;
@@ -40,9 +60,9 @@ h1 {
     margin-top: 40px;
 }
 .brim {
-    border: 2px solid black;
+    background-color: black;
     width: 85px;
-    height: 2px;
+    height: 5px;
 }
 .head, .mid-section, .bottom {
     /* border: 3px solid white; */
@@ -96,7 +116,8 @@ h1 {
     gap: 5px;
 }
 .arm {
-    border: 3px solid saddlebrown;
+    background-color: saddlebrown;
+    height: 5px;
     width: 70px;
     position: absolute;
 }
@@ -106,15 +127,17 @@ h1 {
     transform: rotate(20deg);
 }
 .rfinger1 {
-    border: 2px solid saddlebrown;
+    background-color: saddlebrown;
+    height: 5px;
     width: 20px;
-    top: 7px;
+    top: 5px;
     left: -60px;
     transform: rotate(80deg);
     position: absolute;
 }
 .rfinger2 {
-    border: 2px solid saddlebrown;
+    background-color: saddlebrown;
+    height: 5px;
     width: 20px;
     top: 25px;
     left: -55px;
@@ -127,7 +150,8 @@ h1 {
     transform: rotate(340deg);
 }
 .lfinger1 {
-    border: 2px solid saddlebrown;
+    background-color: saddlebrown;
+    height: 5px;
     width: 20px;
     top: 10px;
     left: 120px;
@@ -135,7 +159,8 @@ h1 {
     position: absolute;
 }
 .lfinger2 {
-    border: 2px solid saddlebrown;
+    background-color: saddlebrown;
+    height: 5px;
     width: 20px;
     top: 23px;
     left: 135px;
@@ -162,15 +187,20 @@ h1 {
     from {opacity: 1;}
     to {opacity: 0;}
 }
+
+/* GAME PLAY */
 .top-right {
     width: 30%;
+}
+.rules {
+    padding: 10px;
 }
 .rules > h3 {
     margin: 10px 0px 5px;
 }
 .rules > ul {
     margin: 0px 0px 10px 20px;
-    font-size: 12px;
+    font-size: 16px;
 }
 .bold {
     font-weight: bold;
@@ -206,7 +236,7 @@ h1 {
 }
 #gameOverMessage {
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 16px;
 }
 .bottom-section {
     display: flex;
@@ -275,13 +305,30 @@ button {
     font-size: 20pt;
     text-align: center;
 }
+
+/* FOOTER */
 footer {
     background-color: #333647;
     color: white;
     height: 200px;
     width: 100%;
     position: absolute;
-    top: 700px;
+    top: 750px;
     bottom: 0px;
     margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+}
+footer > img{
+    width: 100px;
+    height: 100px;
+}
+.text_section > p {
+    margin: 10px 0px;
+    font-size: 14px;
+}
+.link {
+    color: orange;
 }
