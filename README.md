@@ -39,29 +39,7 @@ From the repo:
 
 
 ## Tech Used
-<p align="left">
-    <img
-    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
-    alt="html5"
-    width="40"
-    height="40"
-    />
-    <img
-    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
-    alt="css3"
-    width="40"
-    height="40"
-    />
-    <img
-    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-    alt="javascript"
-    width="40"
-    height="40"
-    />
-    <img
-    src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"
-    alt="git"
-    width="40"
-    height="40"
-    />
-</p>
+
+HTML5 |  CSS3  | JavaScript  | Git
+:---:  |  :---:  |  :---:  |  :---:
+![html5 logo](https://skillicons.dev/icons?i=html "HTML5 logo")  | ![css3 logo](https://skillicons.dev/icons?i=css "CSS3 logo") | ![javascript logo](https://skillicons.dev/icons?i=js "JavaScript logo") | ![git logo](https://skillicons.dev/icons?i=git "Git logo") 
