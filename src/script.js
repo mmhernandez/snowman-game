@@ -74,7 +74,7 @@ function playGame(element) {
     pickRandomWord();
 }
 
-var words = [
+const words = [
     ['h','o','r','s','e'],
     ['t','a','b','l','e'],
     ['p','a','l','a','c','e'],
@@ -99,9 +99,9 @@ const hint = {
     watch: "A piece of functional jewelry",
 };
 
-var wordInPlay = [];
-var playedWords = [];
-var randomNum;
+let wordInPlay = [];
+let playedWords = [];
+let randomNum;
 
 function pickRandomWord() {
     randomNum = Math.floor(Math.random() * 10);
@@ -116,25 +116,25 @@ function pickRandomWord() {
 }
 
 function displayWordToGuess() {
-    for(var i=0; i<wordInPlay.length; i++) {
+    for(let i=0; i<wordInPlay.length; i++) {
         document.getElementById("word").innerHTML += `<p class="word-to-guess"><span class="letter" id="letter${i}">${wordInPlay[i]}</span/</p>`
         document.querySelector(`#letter${i}`).style.display = "none";
     }
 }
 
-var guessedLetter;
-var incorrectGuesses = 0;
-var incorrectlyGuessedLetters = [];
-var count = 0;  //count of letters found in the word
+let guessedLetter;
+let incorrectGuesses = 0;
+let incorrectlyGuessedLetters = [];
+let count = 0;  //count of letters found in the word
 
 function submitGuess(e) {
     e.preventDefault(); //don't adjust the URL upon submitting a guess
     
     guessedLetter = document.getElementById("letter").value.toLowerCase();
-    var check = 0; //check to bypass incorrect guess workflow
+    let check = 0; //check to bypass incorrect guess workflow
 
     //check if the guessed letter has already been guessed
-    for(var i=0; i<incorrectlyGuessedLetters.length; i++) {
+    for(let i=0; i<incorrectlyGuessedLetters.length; i++) {
         if(guessedLetter == incorrectlyGuessedLetters[i]) {
             check++;
         }
@@ -143,7 +143,7 @@ function submitGuess(e) {
     //confirm the guess is applicable (a single alpha character)
     let alphaCheck = /^[A-Za-z]{1}$/;
     if(guessedLetter.match(alphaCheck)) {
-        for(var j=0; j<wordInPlay.length; j++) {
+        for(let j=0; j<wordInPlay.length; j++) {
             //check if the guessed letter is in the word
             if(guessedLetter == wordInPlay[j]) {
                 if(document.querySelector(`#letter${j}`).style.display == "none") {
