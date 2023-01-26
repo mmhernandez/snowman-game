@@ -6,7 +6,7 @@ A spin on the classic "Hangman" word game. Guess the word before the snowman dis
 
 This game is a a single plage HTML and vanilla JavaScript application that features CSS animations and manipulations of the Document Object Model (DOM).
 
-**Live link:** [https://mmhernandez.github.io/snowman-game/](https://mmhernandez.github.io/snowman-game/)
+**Live link:** [https://mmhernandez.github.io/snowman-game/src/](https://mmhernandez.github.io/snowman-game/src/)
 
 
 ## Features
@@ -28,7 +28,7 @@ Players win each game by guessing each letter in the word before the snowman dis
 Live verson:
 
 View the live version of this game, found at the link below.
-[Snowman Game](https://mmhernandez.github.io/snowman-game/)
+[Snowman Game](https://mmhernandez.github.io/snowman-game/src/)
 
 From the repo:
 
