@@ -22,6 +22,10 @@ nav > p {
     cursor: pointer;
 }
 
+#nav_link, #nav_link:visited, #nav_link:link {
+    text-decoration: none;
+}
+
 h1 {
     text-align: center;
     margin: 30px 0px;
@@ -313,7 +317,7 @@ footer {
     height: 200px;
     width: 100%;
     position: absolute;
-    top: 750px;
+    top: 950px;
     bottom: 0px;
     margin-top: 50px;
     display: flex;
@@ -331,4 +335,7 @@ footer > img{
 }
 .link {
     color: orange;
+}
+a > img {
+    width: 30px;
 }

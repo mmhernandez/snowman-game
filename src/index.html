@@ -15,7 +15,7 @@
     <nav>
         <p onmouseover="highlight(this)" onmouseout="removeHighlight(this)" onclick="highlightRules()">Game Rules</p>
         <p id="navPlayBtn" onmouseover="highlight(this)" onmouseout="removeHighlight(this)" onclick="playGameFromNav()">Play Game</p>
-        <p onmouseover="highlight(this)" onmouseout="removeHighlight(this)">Created By</p>
+        <a onmouseover="highlight(this)" onmouseout="removeHighlight(this)" href="#footer" id="nav_link">Created By</a>
     </nav>
     <h1>Snowman Game</h1>
     <div class="top">
@@ -84,13 +84,16 @@
             <div id="word"></div>
         </div>
     </div>
-    <footer>
+    <footer id="footer">
         <img src="../images/logo/MH-logo-light.png" alt="">
         <div class="text_section">
-            <p>Created by Melissa Herhandez</p>
-            <p>Source code available on <a class="link" href="https://github.com/mmhernandez/snowman-game">GitHub</a> page</p>
+            <p>Created with &#9825 by Melissa Herhandez</p>
+            <p>Source code available on <a class="link" target="_blank" href="https://github.com/mmhernandez/snowman-game">GitHub</a> page</p>
             <div class="socials">
-                <p>ADD SOCIALS HERE WITH LINKS</p>
+                <p>
+                    <a href="https://github.com/mmhernandez" target="_blank"><img src="https://skillicons.dev/icons?i=github" alt="github"></a>
+                    <a href="https://www.linkedin.com/in/melissa-dangelo-hernandez/" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" alt="linkedin"></a>
+                </p>
             </div>
         </div>
     </footer>
